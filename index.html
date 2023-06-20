@@ -9,23 +9,27 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-gradient-to-r from-cyan-500 to-blue-500">
+<body class="bg-gradient-to-r from-cyan-500 to-blue-500" >
     <!-- content structure -->
-    <div>
-        <header>
+    <div >
+        <header class="text-center mt-2" >
             <h1>Knock-A-Rodent</h1>
         </header>
         <main>
-            <header>
+            <header class="p-1 my-4 flex justify-center ">
+                <div class="relative right-24 ">
                 <label for="time">Choose a Time:</label>
 
-                <select name="time" id="time">
+                <select name="time" id="time" >
                     <option value="30 secs">30 secs</option>
                     <option value="1 Min">1 Min</option>
                     <option value="2 Min">2 Min</option>
                     <option value="3 Min">3 Min</option>
                 </select>
-            </header>
+            </div>
+
+                <button class="bg-white w-24 h-6  text-yellow-900 rounded-lg hover:shadow-[5px_5px_5px] hover:shadow-zinc-400 ">Start Game</button>
+            </header> 
 
             <section>
                 <div class="rodent-img"></div>
