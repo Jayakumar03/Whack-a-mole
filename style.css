@@ -1,21 +1,22 @@
-#mole{
+#mole {
     background: url(./imges/rodent.png);
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.body-background{
+.body-background {
     background-color: green;
 }
 
 
-#pause-btn, #reset-btn, #quit-btn, #new-game-btn  {
-    display:none;
+#pause-btn,
+#reset-btn,
+#quit-btn,
+#new-game-btn {
+    display: none;
 }
 
-p{
-    display:none;
+p {
+    display: none;
 
 }
-
-
