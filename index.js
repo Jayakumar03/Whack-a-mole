@@ -30,7 +30,10 @@ const timeLeft = document.getElementById("time-left")
 
 const audio = new Audio("./audio/Brass Dragons - Good Authority.mp3")
 let playable = false
+
+// score section
 let greatestScore = 0, score = 0, timer = 0;
+
 
 
 
@@ -116,12 +119,18 @@ function isAudioLoaded(params) {
 
 
 function moleClickedFn(event) {
-
-
+    let x = Math.floor(Math.random() * 7);
     event.perventDefault;
-    console.log(event.target)
 
-    // if()
+    // removing the image
+    event.target.removeAttribute("id","mole")
+
+    // changing the mole image
+
+    moleClicked[x].setAttribute("id","mole")
+
+
+// updating score
     score++
     currentScore.innerHTML = `${score}`
     
