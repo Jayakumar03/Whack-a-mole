@@ -1,4 +1,3 @@
-
 /*Things to do
 1. make the mole appear in random place 
 2. timer
@@ -32,7 +31,9 @@ const audio = new Audio("./audio/Brass Dragons - Good Authority.mp3")
 let playable = false
 
 // score section
-let greatestScore = 0, score = 0, timer = 0;
+let greatestScore = 0,
+    score = 0,
+    timer = 0;
 
 
 
@@ -50,8 +51,8 @@ resetBtn.addEventListener("click", resetGame)
 audio.addEventListener("canplaythrough", isAudioLoaded)
 
 for (let index = 0; index < moleClicked.length; index++) {
-   moleClicked[index].addEventListener("click", moleClickedFn )
-    
+    moleClicked[index].addEventListener("click", moleClickedFn)
+
 }
 
 
@@ -68,22 +69,21 @@ function startingGame(e) {
     startBtn.style.display = "none"
     pauseBtn.style.display = "block"
     resetBtn.style.display = "block"
-   for (let index = 0; index < stats.length; index++) {
-     stats[index].style.display = "block"
-    
-   }
+    for (let index = 0; index < stats.length; index++) {
+        stats[index].style.display = "block"
+
+    }
 
 
 }
 
 function pauseGame(event) {
-    if(pauseBtn.textContent === "Pause Game"){
-    event.perventDefault
-    console.log("paused game");
-    pauseAudio()
-    pauseBtn.textContent = "Resume"
-    }
-    else{
+    if (pauseBtn.textContent === "Pause Game") {
+        event.perventDefault
+        console.log("paused game");
+        pauseAudio()
+        pauseBtn.textContent = "Resume"
+    } else {
         pauseBtn.textContent = "Pause Game"
         audio.play()
 
@@ -123,15 +123,15 @@ function moleClickedFn(event) {
     event.perventDefault;
 
     // removing the image
-    event.target.removeAttribute("id","mole")
+    event.target.removeAttribute("id", "mole")
 
     // changing the mole image
 
-    moleClicked[x].setAttribute("id","mole")
+    moleClicked[x].setAttribute("id", "mole")
 
 
-// updating score
+    // updating score
     score++
     currentScore.innerHTML = `${score}`
-    
+
 }
