@@ -2,21 +2,40 @@
 const startBtn = document.getElementById("start-btn")
 
 
+const audio = new Audio("./audio/Brass Dragons - Good Authority.mp3")
+let playable = false
+
 
 /* Event listeners*/
 
 startBtn.addEventListener("click", startingGame)
+audio.addEventListener("canplaythrough", isAudioLoaded)
+
 
 
 /*Function */
 
 
 function startingGame(e) {
-    e.perventDefault
-    window.document.body.classList.remove("bg-gradient-to-r from-cyan-500 to-blue-500")
-    window.document.body.style.backgroundColor = "red";
-    // document.body.className = "body-background"
+    e.perventDefault 
     console.log("started game");
+    playAudio()
+   
+    
+}
+
+
+function playAudio() {
+    if(playable) audio.play();
+    else{
+        console.log("still waiting for audio")
+    }
+    
+    
+}
+
+function isAudioLoaded(params) {
+    playable = true
     
 }
 

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Knock-A-Rodent</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link href="./style.css" rel="stylesheet" />
 </head>
 
 <body class="bg-gradient-to-r from-cyan-500 to-blue-500" >
@@ -17,7 +18,7 @@
         </header>
         <main>
             <header class="p-1 my-4 flex justify-center ">
-                <div class="relative right-24 ">
+                <!-- <div class="relative right-24 ">
                 <label for="time" class="">Choose a Time:</label>
 
                 <select name="time" id="time" class="rounded-lg  bg-white w-24 h-6 outline-0 text-center" >
@@ -26,15 +27,17 @@
                     <option value="2 Min">2 Min</option>
                     <option value="3 Min">3 Min</option>
                 </select>
-            </div>
+            </div> -->
 
-                <button class="bg-white w-24 h-6 rounded-lg hover:shadow-[5px_5px_5px] hover:shadow-zinc-400 " id="start-btn">Start Game</button>
+                <!-- <button class="bg-white w-24 h-6 rounded-lg hover:shadow-[5px_5px_5px] hover:shadow-zinc-400 " id="start-btn">Start Game</button> -->
+                <button class="bg-white w-24 h-6 rounded-lg hover:shadow-[5px_5px_5px] hover:shadow-zinc-400 " id="">Pause Game</button>
+                <button class="bg-white w-24 h-6 rounded-lg hover:shadow-[5px_5px_5px] hover:shadow-zinc-400 " id="">Reset Game</button>
             </header> 
 
             <section class=" w-4/5 h-fit py-10 mt-10 grid grid-rows-2 grid-cols-4  relative left-20 gap-2.5 justify-center" >
-                <div id="mole" class="w-28 h-28 border-2 border-black ">0</div>
+                <div  class="w-28 h-28 border-2 border-black ">0</div>
                 <div class="w-28 h-28 border-2 border-black">0</div>
-                <div class="w-28 h-28 border-2 border-black">0</div>
+                <div id="mole" class="w-28 h-28 border-2 border-black">0</div>
                 <div class="w-28 h-28 border-2 border-black">0</div>
                 <div class="w-28 h-28 border-2 border-black">0</div>
                 <div class="w-28 h-28 border-2 border-black">0</div>  
@@ -45,7 +48,7 @@
     </div>
 
     <!-- Js script file -->
-    <script src="./index.js"></script>
+    <script src="./index.js" ></script>
 </body>
 
 </html>
