@@ -10,15 +10,24 @@
     <link href="./style.css" rel="stylesheet" />
 </head>
 
-<body class="bg-gradient-to-r from-cyan-500 to-blue-500" >
+<body class="bg-gradient-to-r from-cyan-500 to-blue-500 text-red-100 italic" >
     <!-- content structure -->
     <div >
         <header class="text-center mt-2" >
             <h1>Knock-A-Rodent</h1>
         </header>
+
+        <div class="p-1 my-4 flex justify-center justify-around ">
+            <p class=" w-32 h-10 border border-white-500 py-2 mt-1 rounded-lg text-center">High score : <span id="highscore">11</span></p>
+            <p class=" w-36 h-10  border border-white-500  py-2 mt-1 rounded-lg text-center">Current score : <span id="current-score">11</span></p>
+            <p class=" w-32 h-10  border border-white-500  py-2 mt-1 rounded-lg text-center">Time Left:<span id="time-left">11</span></p>
+            </div>
+
+
         <main>
-            <header class="p-1 my-4 flex justify-center ">
-                <!-- <div class="relative right-24 ">
+            <header class="p-1 my-4 flex justify-center space-x-6 ">
+                <div class="relative right-20 ">
+                     <!--
                 <label for="time" class="">Choose a Time:</label>
 
                 <select name="time" id="time" class="rounded-lg  bg-white w-24 h-6 outline-0 text-center" >
@@ -27,11 +36,16 @@
                     <option value="2 Min">2 Min</option>
                     <option value="3 Min">3 Min</option>
                 </select>
-            </div> -->
+                -->
 
-                <!-- <button class="bg-white w-24 h-6 rounded-lg hover:shadow-[5px_5px_5px] hover:shadow-zinc-400 " id="start-btn">Start Game</button> -->
-                <button class="bg-white w-24 h-6 rounded-lg hover:shadow-[5px_5px_5px] hover:shadow-zinc-400 " id="">Pause Game</button>
-                <button class="bg-white w-24 h-6 rounded-lg hover:shadow-[5px_5px_5px] hover:shadow-zinc-400 " id="">Reset Game</button>
+
+            </div> 
+
+                <button class="bg-white w-24 h-6 rounded-lg hover:shadow-[5px_5px_10px] hover:shadow-grey-400 text-black " id="start-btn">Start Game</button>
+                <button class="bg-white w-24 h-6 rounded-lg hover:shadow-[5px_5px_10px] hover:shadow-grey-400 text-black " id="pause-btn">Pause Game</button>
+                <button class="bg-white w-24 h-6 rounded-lg hover:shadow-[5px_5px_10px] hover:shadow-grey-400 text-black " id="reset-btn">Reset Game</button>
+                <button class="bg-white w-24 h-6 rounded-lg hover:shadow-[5px_5px_10px] hover:shadow-grey-400 text-black" id="quit-btn">quit </button>
+                <button class="bg-white w-24 h-6 rounded-lg hover:shadow-[5px_5px_10px] hover:shadow-grey-400 text-black " id="new-game-btn">start New Game</button>
             </header> 
 
             <section class=" w-4/5 h-fit py-10 mt-10 grid grid-rows-2 grid-cols-4  relative left-20 gap-2.5 justify-center" >
