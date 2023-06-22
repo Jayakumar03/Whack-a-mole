@@ -33,7 +33,9 @@ let playable = false
 // score section
 let greatestScore = 0
 let score = 0
-let perGameTime = 10
+let perGameTime = 30
+let myInterval;
+let temp = 2
 
 
 /* Event listeners*/
@@ -73,33 +75,7 @@ function startingGame(e) {
 
     }
 
-
-    let myInterval = setInterval(timerHandler, 1000)
-
-    function timerHandler(events) {
-        if (perGameTime) {
-            perGameTime -= 1
-            timeLeft.innerHTML = perGameTime
-            // moleClickedFn()
-            console.log("inside if")
-    
-        } else {
-            if (greatestScore < score) {
-                greatestScore = score;
-                score = 0;
-                clearInterval(myInterval)
-                
-            } else {
-                score = 0
-                clearInterval(myInterval)
-            }
-    
-        }
-        console.log("finished if")
-    
-    
-    }
-
+    myInterval = setInterval(timerHandler, 5000)
 
 
 }
@@ -128,12 +104,47 @@ function resetGame(event) {
 
 
 
-
-
-function moleClickedFn(event) {
+function timerHandler() {
     let x = Math.floor(Math.random() * 7);
-    // event.perventDefault;
 
+    if (perGameTime) {
+        perGameTime -= 1
+        timeLeft.innerHTML = perGameTime
+        moleswap(x)
+
+    } else {
+        if (greatestScore < score) {
+            greatestScore = score;
+            score = 0;
+            clearInterval(myInterval)
+            
+        } else {
+            score = 0
+            clearInterval(myInterval)
+        }
+
+    }
+    console.log("finished if")
+
+
+}
+
+
+function moleswap(x) { // if not clicked
+    console.log(temp,x)
+    moleClicked[temp].removeAttribute("id", "mole")
+    moleClicked[x].setAttribute("id", "mole")
+    temp = x
+    console.log(temp,x)
+
+    
+}
+
+
+
+
+function moleClickedFn(event) {  // if clicked
+    event.perventDefault;
 
     if (event.target.id == "mole") {
         // removing the image
@@ -142,10 +153,10 @@ function moleClickedFn(event) {
         // updating score
         score++
         currentScore.innerHTML = `${score}`
-
-        // changing the mole image
-        moleClicked[x].setAttribute("id", "mole")
+        timerHandler()
+        
     }
+
 
 }
 
