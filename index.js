@@ -1,11 +1,11 @@
 /*Things to do
-1. make the mole appear in random place 
-2. timer
-3. when clciked audio 
-4. exit screen
+1. make the mole appear in random place => done
+2. timer 
+3. when clciked audio => asked
+4. exit screen 
 
 
-
+https://knock-a-rodent.netlify.app/
 
 
 */
@@ -31,16 +31,9 @@ const audio = new Audio("./audio/Brass Dragons - Good Authority.mp3")
 let playable = false
 
 // score section
-let greatestScore = 0,
-    score = 0,
-    timer = 0;
-
-
-
-
-
-
-
+let greatestScore = 0
+let score = 0
+let perGameTime = 10
 
 
 /* Event listeners*/
@@ -50,10 +43,7 @@ pauseBtn.addEventListener("click", pauseGame)
 resetBtn.addEventListener("click", resetGame)
 audio.addEventListener("canplaythrough", isAudioLoaded)
 
-for (let index = 0; index < moleClicked.length; index++) {
-    moleClicked[index].addEventListener("click", moleClickedFn)
 
-}
 
 
 
@@ -69,10 +59,47 @@ function startingGame(e) {
     startBtn.style.display = "none"
     pauseBtn.style.display = "block"
     resetBtn.style.display = "block"
+
+    // Displaying the timer, highscore and current score
+
     for (let index = 0; index < stats.length; index++) {
         stats[index].style.display = "block"
 
     }
+
+
+    for (let index = 0; index < moleClicked.length; index++) {
+        moleClicked[index].addEventListener("click", moleClickedFn)
+
+    }
+
+
+    let myInterval = setInterval(timerHandler, 1000)
+
+    function timerHandler(events) {
+        if (perGameTime) {
+            perGameTime -= 1
+            timeLeft.innerHTML = perGameTime
+            // moleClickedFn()
+            console.log("inside if")
+    
+        } else {
+            if (greatestScore < score) {
+                greatestScore = score;
+                score = 0;
+                clearInterval(myInterval)
+                
+            } else {
+                score = 0
+                clearInterval(myInterval)
+            }
+    
+        }
+        console.log("finished if")
+    
+    
+    }
+
 
 
 }
@@ -91,11 +118,45 @@ function pauseGame(event) {
 
 }
 
+
+
 function resetGame(event) {
     console.log("Reseted game");
     pauseAudio()
 
 }
+
+
+
+
+
+function moleClickedFn(event) {
+    let x = Math.floor(Math.random() * 7);
+    // event.perventDefault;
+
+
+    if (event.target.id == "mole") {
+        // removing the image
+        event.target.removeAttribute("id", "mole")
+
+        // updating score
+        score++
+        currentScore.innerHTML = `${score}`
+
+        // changing the mole image
+        moleClicked[x].setAttribute("id", "mole")
+    }
+
+}
+
+
+
+
+
+
+
+
+
 
 // audio functions
 
@@ -114,24 +175,5 @@ function pauseAudio(param) {
 
 function isAudioLoaded(params) {
     playable = true
-
-}
-
-
-function moleClickedFn(event) {
-    let x = Math.floor(Math.random() * 7);
-    event.perventDefault;
-
-    // removing the image
-    event.target.removeAttribute("id", "mole")
-
-    // changing the mole image
-
-    moleClicked[x].setAttribute("id", "mole")
-
-
-    // updating score
-    score++
-    currentScore.innerHTML = `${score}`
 
 }
