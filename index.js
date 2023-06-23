@@ -36,7 +36,6 @@ let score = 0
 let perGameTime = 10
 let myInterval;
 let temp = 2
-let lastGameTime
 
 
 /* Event listeners*/
@@ -82,6 +81,7 @@ function startingGame(e) {
 }
 
 function pauseGame(event) {
+    let lastGameTime
     if (pauseBtn.textContent === "Pause Game") {
         event.perventDefault
         console.log("paused game");
@@ -105,6 +105,19 @@ function pauseGame(event) {
 function resetGame(event) {
     console.log("Reseted game");
     pauseAudio()
+
+    startBtn.style.display = "block"
+    pauseBtn.style.display = "none"
+    resetBtn.style.display = "none"
+    stats[0].style.display = "none"
+    stats[1].style.display = "none"
+    stats[2].style.display = "none"
+    clearInterval(myInterval)
+    score = 0
+    perGameTime = 10
+    timeLeft.innerHTML = perGameTime
+
+
 
 }
 
