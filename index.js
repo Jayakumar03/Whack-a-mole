@@ -1,17 +1,3 @@
-/*Things to do
-1. make the mole appear in random place => done
-2. timer 
-3. when clciked audio => asked
-4. exit screen 
-
-
-https://knock-a-rodent.netlify.app/
-
-
-*/
-
-
-
 
 /*Variables   */
 const startBtn = document.getElementById("start-btn")
@@ -24,11 +10,10 @@ const currentScore = document.getElementById("current-score")
 const highScore = document.getElementById("high-score")
 const timeLeft = document.getElementById("time-left")
 
-
-
-
+// Audio variable
 const audio = new Audio("./audio/Brass Dragons - Good Authority.mp3")
 let playable = false
+
 
 // score section
 let greatestScore = 0
@@ -36,6 +21,7 @@ let score = 0
 let perGameTime = 10
 let myInterval;
 let temp = 2
+
 
 
 /* Event listeners*/
@@ -193,12 +179,6 @@ function moleClickedFn(event) {  // if clicked
 
 
 }
-
-
-
-
-
-
 
 
 
