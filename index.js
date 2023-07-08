@@ -21,6 +21,7 @@ let score = 0
 let perGameTime = 10
 let myInterval;
 let temp = 2
+let lastGameTime
 
 
 
@@ -66,8 +67,13 @@ function startingGame(e) {
 
 }
 
+function resume() {
+    myInterval = setInterval(timerHandler, 1000)
+    
+}
+
 function pauseGame(event) {
-    let lastGameTime
+    
     if (pauseBtn.textContent === "Pause Game") {
         event.perventDefault
         console.log("paused game");
@@ -80,6 +86,8 @@ function pauseGame(event) {
         pauseBtn.textContent = "Pause Game"
         audio.play()
         perGameTime = lastGameTime
+        resume()
+
 
 
     }
@@ -117,6 +125,7 @@ function gameFinished(params) {
     resetBtn.style.display = "none"
     stats[2].style.display = "none"
 
+
     
 }
 
@@ -133,6 +142,7 @@ function timerHandler() {
             greatestScore = score;
             highScore.innerHTML = greatestScore;
             score = 0;
+            gameFinished()
             clearInterval(myInterval)
            
             
@@ -140,7 +150,7 @@ function timerHandler() {
             score = 0
             clearInterval(myInterval)
             gameFinished()
-            setInterval(timerHandler, 1000)
+            // setInterval(timerHandler, 1000)
         }
 
     }
@@ -185,11 +195,11 @@ function moleClickedFn(event) {  // if clicked
 
 // audio functions
 
-function playAudio(param) {
+function playAudio() {
     if (playable) audio.play();
     else {
         console.log("still waiting for audio")
-    }highScore
+    }
 
 }
 
@@ -198,7 +208,7 @@ function pauseAudio(param) {
 
 }
 
-function isAudioLoaded(params) {
+function isAudioLoaded() {
     playable = true
 
 }
